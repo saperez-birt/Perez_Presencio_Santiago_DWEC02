@@ -121,16 +121,14 @@ function calcularGastoTotal() {
     } */
 }
 
-// guardar gasto introducido y actualizar datos
+
 function guardarGasto(event) {
     event.preventDefault(); 
 
-    // Obtener los datos del formulario
     const tipoVehiculo = document.getElementById('vehicle-type').value;
     const fecha = new Date(document.getElementById('date').value);
     const kilometros = parseFloat(document.getElementById('kilometers').value);
 
-    // Calcular y obtener el precio de viaje
     let precioViaje = 0;
     for (let tarifa of tarifasJSON.tarifas) {
         if (fecha.getFullYear() === tarifa.anio) {
@@ -142,15 +140,13 @@ function guardarGasto(event) {
         }
     }
     const nuevoGasto = new GastoCombustible(tipoVehiculo, fecha.toISOString(), kilometros, precioViaje);
-    console.log(nuevoGasto);
 
     gastosJSON.push(nuevoGasto.convertToJSON());
-    console.log(gastosJSON);
 
-    const gastosRecientesContainer = document.getElementById('expense-list'); // Asegúrate de que este ID exista en tu HTML
+    const gastosRecientes = document.getElementById('expense-list');
     const nuevaFila = document.createElement('li');
-    nuevaFila.textContent = JSON.stringify(nuevoGasto, null, 2); // Asegúrate de formatear esto correctamente según lo que quieras mostrar
-    gastosRecientesContainer.appendChild(nuevaFila);
+    nuevaFila.textContent = JSON.stringify(nuevoGasto, null, 2);
+    gastosRecientes.appendChild(nuevaFila);
 
     calcularGastoTotal();
     document.getElementById("fuel-form").reset();
