@@ -87,7 +87,7 @@ function calcularGastoTotal() {
         }
     }
 
-    // Comprueba que el elemento existe y modifica el contenido su contenido
+    // Comprueba que el elemento existe y modifica su contenido
     for (let anio in aniosArray) {
         const elemento = document.getElementById(`gasto${anio}`);
         if (elemento) {
