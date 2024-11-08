@@ -36,7 +36,6 @@ async function cargarDatosIniciales() {
     }
 }
 
-/*  */
 // Función para cargar un JSON desde una ruta específica
 async function cargarJSON(path) {
     /* fetch(url) realiza una solicitud HTTP para obtener el recurso ubicado
@@ -70,7 +69,6 @@ function calcularGastoTotal() {
         2019: 0,
         2020: 0
     }
-    let i = 0;
 
     /* Controla que al crear una nueva fecha no haya un error.
     Su constructor devuelve Nan o "Invalid Date".
@@ -96,31 +94,7 @@ function calcularGastoTotal() {
             console.log(`El elemento gasto${anio} no existe.`)
         }
     }
-/*  
-    PRUEBAS BUCLES
-    for (let i = 0; i < gastosJSON.length; i++) {
-        console.log(gastosJSON[i]);
-    }
-
-    for (let gasto in gastosJSON) {
-        console.log(gasto);
-    }
-
-    gastosJSON.forEach(gasto => {
-    console.log(gasto);
-    });
-
-    gastosJSON.map((gasto) => {
-        console.log(gasto);
-    });
-
-    for (let gasto of gastosJSON) {
-        for (let key in gasto) {
-            console.log(`${key}: ${gasto[key]}`);
-        }
-    } */
 }
-
 
 function guardarGasto(event) {
     event.preventDefault(); 
